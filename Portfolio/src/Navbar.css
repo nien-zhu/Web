@@ -1,0 +1,88 @@
+
+:root {
+    scroll-padding-top: 50px;
+}
+
+header{
+    /* 設定flexbox */
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    color: white;
+    /* 設定顏色 */
+    background-color: #458B74;
+    position:sticky;
+    top:0;
+    border-bottom: 1px solid white;
+}
+
+header nav{
+    display: flex; /*align-items:stretch;*/
+}
+
+header ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+header li{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+header li:hover{
+    background-color: #9b9;
+    color: white;
+}
+
+header a{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+#title{
+    /* 垂直置中 */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    /* 調整文字 */
+    font-size: 25px;
+    /* 調整padding */
+    padding-left: 10px;
+}
+
+.moblie-menu{
+    display: none;
+    margin: 5px;
+    align-items: center;
+}
+
+.moblie-menu span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid white;
+    border-radius: 5px;
+    font-size: 25px;;
+    cursor:pointer;
+    height: 30px;
+    width: 30px;
+}
+
+@media (max-width:500px){
+    .desktop-menu{
+        display: none;
+    }
+    .moblie-menu{
+        display: flex;
+    }
+    #title{
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,62 @@
+body{
+  /* padding: 0px;
+  margin: 0px; */
+}
+
+.Font-Red{
+  color:red;
+}
+
+#Food-Img{
+  height: 100px;
+  width: auto;
+}
+
+#Menu-Container{
+  display:flex;
+  justify-content: center;
+}
+
+#Menu-Option-Container{
+  display: flex;
+  justify-content: center;
+}
+
+#Contact-List-Container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(132, 108, 108, 0.674);
+  margin-top: 10px;
+}
+#Contact-List-Container div{
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#Contact-List-Container div hr{
+  margin: 0;
+  border: rgba(0, 0, 0, 0.603) solid 1px;
+}
+
+#Contact-List-Container button{
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+#Name-Input, #Email-Input{
+  border-radius: 2px;
+  height: auto;
+  width: 80%;
+  padding: 3px;
+}
+
+
+#Feedback-Input{
+  border-radius: 2px;
+  height: 100px;
+  width: 80%;
+  padding: 3px;
+}
