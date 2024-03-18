@@ -1,0 +1,25 @@
+img{ 
+    width: 500px;
+    height: 500px;
+}
+
+body{
+    /* background-color: deepskyblue; */
+    background:url(./air.jpg) center no-repeat fixed;
+    background-size: cover;
+}
+
+.pic1{
+    display: block;
+    margin: auto;
+    border:5px solid green;
+    border-radius: 50%;
+    box-shadow:20px 20px 3px black;
+}
+
+.pic1:hover{
+    opacity: 50%;
+    filter:sepia(100%);
+    box-shadow:0px 0px 0px black;
+    transition: 1s;
+}

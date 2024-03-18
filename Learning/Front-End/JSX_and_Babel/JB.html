@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 告訴瀏覽器，網頁是utf-8 -->
+        <meta charset="utf-8" />
+        <title>JSX and Babel practicing</title>
+        <!-- <link rel="stylesheet" type="text/css" href="home_css.css" /> -->
+
+        <!-- 載入css檔-->
+        <link rel="stylesheet" type="text/css" href="JB.css" />
+        <!-- 載入 React -->
+        <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+        <!-- 載入babel -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <!-- JavaScript包含babel語法必須加type="text/babel" -->
+        <script type="text/babel">
+
+            class Myhead extends React.Component{
+                render(){
+                    return <div className="head" style={{color:this.props.color}}>Hello World {this.props.level}</div>;
+                }
+            }
+
+            class MyheadList extends React.Component{
+                render(){
+                    return <div>
+                        <Myhead level="1" color="red" />    
+                        <Myhead level="2" color="green" />    
+                        <Myhead level="3" color="blue" />    
+                    </div>;
+                }
+            }
+
+            window.addEventListener("load", ()=>{
+                let elem=<MyheadList />;
+                ReactDOM.render(
+                    elem, document.body
+                );
+            });
+        </script>
+        
+    </head>
+    <body>
+
+    </body>
+</html>

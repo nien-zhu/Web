@@ -1,0 +1,18 @@
+            body{background-color: #cbc7c7}
+            #title-1{text-decoration: line-through black;}
+            .keyword{
+                color:blue;
+                font-weight:bold;
+            }
+            .title{
+                margin-bottom: 10px;
+                margin-top: 10px;
+                color:red;
+                font-weight: bold;
+                font-size: 24px;
+            }
+            .content{
+                width: 400px;
+                padding: 10px;
+                border: 1px dashed blue;
+            }

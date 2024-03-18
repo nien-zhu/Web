@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 告訴瀏覽器，網頁是utf-8 -->
+        <meta charset="utf-8" />
+        <title>React/jsx event practicing</title>
+        <!-- <link rel="stylesheet" type="text/css" href="home_css.css" /> -->
+
+        <!-- 載入css -->
+        <link rel="stylesheet" type="text/css" href="react.css" />
+
+        <!-- 載入 React。 -->
+        <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+        <!-- 載入Babel -->       
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <!-- 載入我們的 React component。-->
+        <!-- <script src="react.js"></script> -->
+
+        <script type="text/babel">
+            class MyHead extends React.Component{
+
+                constructor(props){
+                    super(props);
+                    this.state={color:"red"};
+                }
+                render(){
+                    return <div className={"head-"+this.props.level}
+                        style={{color:this.state.color}}
+                        onClick={this.clickHandler.bind(this)}
+                        onMouseOver={this.mouseOverHandler.bind(this)}
+                        onMouseOut={this.mouseOutHandler.bind(this)}>Hello World</div>;
+                };
+
+                mouseOverHandler(e){
+                    this.setState({color:"green"});
+                }
+
+                clickHandler(e){
+                    this.setState({color:"blue"});
+                }
+
+                mouseOutHandler(e){
+                    this.setState({color:"red"});
+                }
+
+            }
+            window.addEventListener("load", ()=>{
+                ReactDOM.render(<MyHead level="3" />, document.body);
+            });
+
+
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

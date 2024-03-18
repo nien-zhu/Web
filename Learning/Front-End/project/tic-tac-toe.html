@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 告訴瀏覽器，網頁是utf-8 -->
+        <meta charset="utf-8" />
+        <title>Tic Tac Toe Game</title>
+        <!-- <link rel="stylesheet" type="text/css" href="home_css.css" /> -->
+
+        <!-- 載入css -->
+        <link rel="stylesheet" type="text/css" href="tic-tac-toe.css" />
+
+        <!-- 載入 React。 -->
+        <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+        <!-- 載入Babel -->       
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <!-- 載入我們的 React component。-->
+        <!-- <script src="react.js"></script> -->
+
+        <script type="text/babel">
+            class Title extends React.Component{
+                render(){
+                    return <div className="title">Tic Tac Toe Game</div>;        
+                }
+            }
+
+            class Cell extends React.Component{
+                render(){
+                    let text="";
+                    if(this.props.label==1){
+                        text="O"
+                    }
+                    else if(this.props.label==-1){
+                        text="X"
+                    }
+                    return <div className="cell" onClick={this.clickEvent.bind(this)}>{text}</div>;
+                }
+                clickEvent(e){
+                    this.props.update(this.props.index);
+                }
+            }
+
+            class Line extends React.Component{
+                render(){
+                    let startX=this.props.startIndex%3;
+                    let startY=Math.floor(this.props.startIndex/3);
+                    let endX=this.props.endIndex%3;
+                    let endY=Math.floor(this.props.endIndex/3);
+                    return <svg className="line"><line x1={startX*100+50} y1={startY*100+50} x2={endX*100+50} y2={endY*100+50} stroke="red" strokeWidth="5"/></svg>;
+                }
+            }
+
+            class Board extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.state={
+                        turn:1,
+                        labels:[0,0,0,0,0,0,0,0,0],
+                        winner:null
+                    }
+                }
+                
+                render(){
+                    let label;
+                    if(this.state.turn%2==1){
+                        label=1;
+                    }
+                    else{
+                        label=-1;
+                    }
+                    let cells=[];
+                    for(let i=0; i<9; i++){
+                        cells.push(<Cell index={i} label={this.state.labels[i]}  update={this.updateLabel.bind(this)}/>);
+                    }
+                    if(this.state.winner!==null){
+                        console.log(this.state.winner);
+                        cells.push(<Line startIndex={this.state.winner.startIndex}
+                            endIndex={this.state.winner.endIndex}/>)
+                    }
+                    return <div className="board">{cells}</div>;
+                }
+
+                updateLabel(index){
+                    let currentLabel=this.state.labels[index];
+                    if (currentLabel===0&&this.state.winner===null){
+                        this.setState((preState)=>{
+                            let label=preState.turn%2;
+                            if (label==0){
+                                label=-1;
+                            }
+                            preState.labels[index]=label;
+
+                            if (preState.turn>=5){
+                                let winner=this.checkWinner(preState.labels);
+                                if (winner!=null){
+                                    preState.winner=winner;
+                                }
+                            }
+                            
+                            return{
+                                turn:preState.turn+1,
+                                labels:preState.labels
+                            };
+                        });
+                    }
+                }
+
+                checkWinner(labels){
+                    for(let i=0; i<9; i+=3){
+                        // console.log("row"+i);
+                        if(labels.slice(i, i+3).reduce((a, b) => a + b, 0)==3){return {side:"O", startIndex:i, endIndex:i+2};}
+                        else if (labels.slice(i, i+3).reduce((a, b) => a + b, 0)==-3){return {side:"X", startIndex:i, endIndex:i+2};};
+                    }
+                    
+                    for (let i=0; i<=2; i++){
+                        // console.log("column");
+                        if((labels[i]+labels[i+3]+labels[i+6]) == 3){return {side:"O", startIndex:i, endIndex:i+6};}
+                        else if((labels[i]+labels[i+3]+labels[i+6]) == -3){return {side:"X", startIndex:i, endIndex:i+6};};
+                    }
+                    let leftLine=labels[0]+labels[4]+labels[8];
+                    let rightLine=labels[2]+labels[4]+labels[6];
+
+                    if (rightLine==-3 || rightLine==3){if (rightLine>0){return {side:"O", startIndex:2, endIndex:6};}else{return {side:"X", startIndex:2, endIndex:6};}}
+                    else if (leftLine==-3 || leftLine==3){if (leftLine>0){return {side:"O", startIndex:0, endIndex:8};}else{return{side:"X", startIndex:0, endIndex:8};}}
+                }
+            }
+
+            class Button extends React.Component{
+                render(){
+                    return <button className="button" onClick={this.click.bind(this)}>Reset</button>;
+                }
+                click(e){
+                    console.log("reset");
+                }
+            }
+
+
+
+            window.addEventListener("load", ()=>{
+                ReactDOM.render(<Title/>, document.getElementById("title"));
+                ReactDOM.render(<Board/>, document.getElementById("content"));
+                ReactDOM.render(<Button/>, document.getElementById("button"));
+            });
+
+
+        </script>
+
+    </head>
+    <body>
+        <div id="title"></div>
+        <div id="content"></div>
+        <div id="button"></div>
+
+    </body>
+</html>

@@ -1,0 +1,22 @@
+.switch_off{
+    width: 60px;
+    height: 30px;
+    background-color: rgb(194, 183, 183);
+    border-radius: 15px;
+}
+
+.switch_off>.btn{
+    width:30px;
+    height:30px;
+    background-color: rgb(52, 49, 49);
+    border-radius: 15px;
+}
+
+.switch-on{
+    background-color: rgb(194, 183, 183);
+}
+
+.switch-on>.btn{
+    background-color: #484;
+    margin-left:30px;
+}

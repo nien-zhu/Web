@@ -1,0 +1,81 @@
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(67, 81, 118);
+}
+
+#menu a{
+    color: inherit;
+    text-decoration: none;
+}
+
+#menu {
+    background-color: rgb(67, 81, 118);
+    display: flex;
+    padding: 0;
+    margin:0;
+}
+
+#menu li{
+    list-style-type: none;
+}
+
+#menu>li{
+    border-right: solid black 1px;
+}
+
+#option>div{
+    display: block;
+    line-height: 50px;
+    width: 100px;
+    background-color: rgb(139, 139, 207);
+}
+
+#option>div>a{
+    display: block;
+    text-align: center;
+    
+}
+
+#DropDownContent{
+    display: none;
+    position: absolute;
+    padding: 0;
+}
+
+#DropDownContent li{
+    display:block;
+    padding:5px;
+    background-color: rgb(198, 222, 198);
+    width: 90px;
+}
+
+#DropDownContent li a{
+    display: block;
+    text-align: center;
+}
+
+#option>div:hover{
+    background-color: rgb(38, 10, 38);
+    color: white;
+}
+
+#DropDownContent li:hover{
+    color: white;
+    background-color:rgba(62, 105, 197, 0.833) ;
+}
+
+#option>div:hover+#DropDownContent, #DropDownContent:hover{
+    display: block;
+}
+
+#title{
+    display:flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+#title a{
+    font-size: 30px;
+}

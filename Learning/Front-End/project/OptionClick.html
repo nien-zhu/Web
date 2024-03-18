@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 告訴瀏覽器，網頁是utf-8 -->
+        <meta charset="utf-8" />
+        <title>Option click option</title>
+        <!-- <link rel="stylesheet" type="text/css" href="home_css.css" /> -->
+
+        <!-- 載入css -->
+        <link rel="stylesheet" type="text/css" href="OptionClick.css" />
+
+        <!-- 載入 React。 -->
+        <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+        <!-- 載入Babel -->       
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <!-- 載入我們的 React component。-->
+        <!-- <script src="react.js"></script> -->
+
+        <script type="text/babel">
+            
+            class Switch extends React.Component{
+
+                constructor(props){
+                    super(props),
+                    this.state={on: false}
+                }
+
+                render(){
+                    let switch_name="switch_off"
+                    if(this.state.on){
+                        switch_name+=" switch-on"
+                    }
+
+                    return <div onClick={()=>{this.setState((currentState)=>({on:!currentState.on}))}}
+                        className={switch_name}>
+                        <div class="btn"></div>
+                    </div>;
+                }
+            }
+
+            
+
+            window.addEventListener("load", ()=>{
+                ReactDOM.render(<Switch/>, document.getElementById("switch-0"));
+                ReactDOM.render(<Switch/>, document.getElementById("switch-1"));
+            });
+
+        </script>
+
+    </head>
+    <body>
+
+        <div id="switch-0"></div>
+        <hr/>
+        <div id="switch-1"></div>
+
+    </body>
+</html>

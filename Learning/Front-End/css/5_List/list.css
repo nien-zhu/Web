@@ -1,0 +1,20 @@
+
+nav{
+    display: flex;
+    background-color: red;
+    height: 200px;
+    padding: 0px;
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+    background-color: green;
+    padding:0;
+    margin: 0px;
+    
+}
+
+li{
+    background-color: blue;
+}
