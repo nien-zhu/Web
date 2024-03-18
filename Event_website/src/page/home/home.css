@@ -1,0 +1,68 @@
+
+#cover{
+    position: relative;
+    
+}
+
+#cover ::before{
+    content:"";
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.777), rgba(255, 255, 255, 0)), url("./img/宜大水池.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    /* 偏移值皆設為 0，讓僞元素跟父元素一樣大小 */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+#theme-comp{
+    color: blacks;
+    font-weight: bold;
+    line-height: 150px;
+    font-size: 40px;
+    text-align: center;
+}
+
+#theme-mobile{
+    display: none;
+    color: blacks;
+    font-weight: bold;
+    padding-top: 10px;
+    line-height: 30px;
+    font-size: 25px;
+    text-align: center;
+}
+
+#information{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    text-align:left;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.padding-top60{
+    padding-top: 60px;
+}
+
+@media (max-width: 600px){
+    #theme-mobile{display: block;}
+    #theme-comp{display:none;}
+    #information{font-size: 10px;}
+
+}
+
+@media(min-width: 600px) and (max-width: 1000px){
+    #theme-mobile{display: block;font-size: 40px;line-height: 50px;}
+    #theme-comp{display:none;}
+    #information{font-size: 10px;}
+
+}
